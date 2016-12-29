@@ -1,0 +1,12 @@
+env
+.venv
+output
+.sass-cache
+*.swp
+*.pyc
+db.sqlite3
+media/CACHE
+staticfiles/CACHE
+
+.DS_Store
+node_modules
