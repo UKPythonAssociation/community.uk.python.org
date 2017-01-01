@@ -11,6 +11,13 @@ class UserGroup(ModelWithoutContent):
     def __str__(self):
         return self.name
 
+    class Manager(models.Manager):
+        def no_events_scheduled(self, year, month):
+            subquery = self.filter(event__date__year=year, event__date__month=month)
+            return self.exclude(id__in=subquery)
+
+    objects = Manager()
+
 
 class Event(ModelWithoutContent):
     user_group = models.ForeignKey(UserGroup)
