@@ -1,5 +1,5 @@
 from django.db import models
-from django_amber.models import ModelWithoutContent
+from django_amber.models import ModelWithoutContent, PagesManager
 
 
 class UserGroup(ModelWithoutContent):
@@ -11,7 +11,7 @@ class UserGroup(ModelWithoutContent):
     def __str__(self):
         return self.name
 
-    class Manager(models.Manager):
+    class Manager(PagesManager):
         def no_events_scheduled(self, year, month):
             subquery = self.filter(event__date__year=year, event__date__month=month)
             return self.exclude(id__in=subquery)
