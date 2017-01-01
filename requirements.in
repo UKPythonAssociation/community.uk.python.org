@@ -1,4 +1,6 @@
 django
 django-amber
+django-dotenv
 django-markdown-deux
 django_compressor
+requests

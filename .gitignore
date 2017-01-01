@@ -10,3 +10,4 @@ staticfiles/CACHE
 
 .DS_Store
 node_modules
+.env

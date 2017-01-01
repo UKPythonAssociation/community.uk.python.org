@@ -134,3 +134,9 @@ MARKDOWN_DEUX_STYLES = {
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
 )
+
+
+# API key for retrieving events from meetup.com
+# See https://secure.meetup.com/meetup_api/key/.
+
+MEETUP_API_KEY = os.getenv('MEETUP_API_KEY', None)
