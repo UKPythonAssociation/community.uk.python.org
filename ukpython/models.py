@@ -32,3 +32,9 @@ class Event(ModelWithoutContent):
 
     def __str__(self):
         return self.name
+
+    class Manager(PagesManager):
+        def scheduled_in_month(self, year, month):
+            return self.filter(date__year=year, date__month=month)
+
+    objects = Manager()

@@ -1,0 +1,27 @@
+Welcome to the {{ month_name }} edition of UK Python News!<br />
+<br />
+If you run a regular meetup, are putting on an event that you&#39;d like us to publicise, or have other news you&#39;d like to share, please <a href="http://2016.pyconuk.org/contact/" target="_blank">let us know</a>. The deadline for the {{ next_month_name }} edition is {{ next_month_deadline|date:"jS F" }}.<br />
+<br />
+All the best,<br />
+<br />
+~ The PyCon UK Committee<br />
+<br />
+
+<h3 class="null">Upcoming events</h3><br />
+
+{% for event in upcoming_events %}
+<a href="{{ event.user_group.url }}" target="_blank">{{ event.user_group.name }}</a><br />
+{{ event.name }}<br />
+{{ event.date|date:"l jS F" }}, {{ event.time|date:"G:i" }}<br />
+{{ event.venue }}<br />
+<a href="{{ event.url }}" target="_blank">More details</a><br />
+<br />
+{% endfor %}
+
+<h3 class="null">Other groups</h3><br />
+
+There are a number of other Python groups who have not yet published details of any {{ month_name }} meetings.<br /><br />
+
+{% for group in groups_with_no_events_scheduled %}
+<a href="{{ group.url }}" target="_blank">{{ group.name }}</a><br />
+{% endfor %}
