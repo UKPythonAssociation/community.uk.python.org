@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^groups/$', views.UserGroupListView.as_view(), name='user-groups'),
     url(r'^groups/(?P<slug>[\w-]+)/$', views.UserGroupDetailView.as_view(), name='user-group'),
+    url(r'events/$', views.EventListView.as_view(), name='events'),
 ]

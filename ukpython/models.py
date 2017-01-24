@@ -57,4 +57,8 @@ class Event(ModelWithoutContent):
         def scheduled_in_month(self, year, month):
             return self.filter(date__year=year, date__month=month)
 
+        def future_events(self):
+            today = datetime.date.today()
+            return self.filter(date__gte=today).order_by('date', 'time')
+
     objects = Manager()

@@ -1,0 +1,7 @@
+<h1>Events</h1>
+
+{% for event in events %}
+<hr />
+{% include './_event.html' with event=event include_group=True %}
+{% endfor %}
+
