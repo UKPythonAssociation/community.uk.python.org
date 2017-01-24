@@ -24,6 +24,7 @@ fi
 
 echo "Scraping!"
 
+git checkout master
 make scrape
 git add events
 git commit -m "[skip ci]  Auto-commit.  Scraped events."
