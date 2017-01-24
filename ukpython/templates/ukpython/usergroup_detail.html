@@ -1,0 +1,32 @@
+<h1>{{ group.name }}</h1>
+
+<ul>
+  <li><a href="{{ group.url }}">Website</a></li>
+</ul>
+
+<hr />
+
+{% if next_event %}
+<p>Next event</p>
+{% include './_event.html' with event=next_event %}
+{% else %}
+<p>No upcoming events.</p>
+{% endif %}
+
+<hr />
+
+{% if other_future_events %}
+<p>Other future events:</p>
+{% for event in other_future_events %}
+{% include './_event.html' with event=event %}
+{% endfor %}
+{% endif %}
+
+<hr />
+
+{% if past_events %}
+<p>Past events:</p>
+{% for event in past_events %}
+{% include './_event.html' with event=event %}
+{% endfor %}
+{% endif %}

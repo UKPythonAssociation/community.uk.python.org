@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django_amber.models import ModelWithoutContent, PagesManager
 
@@ -18,9 +20,27 @@ class UserGroup(ModelWithoutContent):
 
     objects = Manager()
 
+    def future_events(self):
+        today = datetime.date.today()
+        return self.events.filter(date__gte=today).order_by('date', 'time')
+
+    def past_events(self):
+        today = datetime.date.today()
+        return self.events.filter(date__lt=today).order_by('date', 'time')
+
+    def next_event(self):
+        upcoming_events = self.future_events()
+        if upcoming_events:
+            return upcoming_events[0]
+        else:
+            return None
+
+    def other_future_events(self):
+        return self.future_events()[1:]
+
 
 class Event(ModelWithoutContent):
-    user_group = models.ForeignKey(UserGroup)
+    user_group = models.ForeignKey(UserGroup, related_name='events')
     name = models.CharField(max_length=255)
     url = models.URLField(null=True)
     date = models.DateField(null=True)
