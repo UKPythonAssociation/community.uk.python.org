@@ -22,17 +22,29 @@ else
 	REPO_URL="git@github.com:inglesp/ukpython.git"
 fi
 
+timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
 echo "Scraping!"
 
+# Make sure we're on master, since Travis checks out a commit not a branch
 git checkout master
+
+# Scrape any new events
 make scrape
+
+# Add, commit, and push any changes.
 git add events
 status=$(git status --porcelain events/)
 if [[ -z $status ]]
 then
   echo "No new events"
 else
-  git commit -m "[skip ci]  Auto-commit.  Scraped events."
+  git commit -m "[skip ci]  Auto-commit.  Scraped events.
+
+Deploy timestamp: $timestamp
+Travis build id: $TRAVIS_BUILD_ID
+Travis build number: $TRAVIS_BUILD_NUMBER
+"
   git push $REPO_URL master
 fi
 
@@ -40,21 +52,13 @@ echo "Deploying!"
 
 # Build the site into the output directory
 make build
-echo "tree of everything in output"
-find output
 
 # Remove gh-pages directory and replace it with the current tip of the gh-pages branch.
-echo "removing gh-pages directory"
 rm -rf gh-pages
-echo "cloning gh-pages branch into gh-pages directory"
 git clone $REPO_URL --branch gh-pages --single-branch gh-pages
-echo "tree of everything in gh-pages"
-find gh-pages | grep -v .git
 
 # Replace the contents of the gh-pages directory with the newly-built site
-echo "removing gh-pages directory again"
 rm -rf gh-pages/*
-echo "copying output into gh-pages directory"
 cp -r output/* gh-pages
 
 # Add, commit, and push any changes.
@@ -65,6 +69,11 @@ if [[ -z $status ]]
 then
   echo "No changes"
 else
-  git commit -m "[skip ci]  Auto-commit.  Built latest changes."
+  git commit -m "[skip ci]  Auto-commit.  Built latest changes.
+
+Deploy timestamp: $timestamp
+Travis build id: $TRAVIS_BUILD_ID
+Travis build number: $TRAVIS_BUILD_NUMBER
+"
   git push $REPO_URL gh-pages
 fi
