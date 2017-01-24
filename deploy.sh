@@ -58,12 +58,13 @@ echo "copying output into gh-pages directory"
 cp -r output/* gh-pages
 
 # Add, commit, and push any changes.
-echo "cding into gh-pages directory"
 cd gh-pages
-echo "adding everything"
 git add .
-echo "committing"
-git commit -m "[skip ci]  Auto-commit.  Built latest changes."
-echo "pushing"
-git push $REPO_URL gh-pages
-echo "done"
+status=$(git status --porcelain)
+if [[ -z $status ]]
+then
+  echo "No changes"
+else
+  git commit -m "[skip ci]  Auto-commit.  Built latest changes."
+  git push $REPO_URL gh-pages
+fi
