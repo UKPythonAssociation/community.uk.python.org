@@ -27,8 +27,14 @@ echo "Scraping!"
 git checkout master
 make scrape
 git add events
-git commit -m "[skip ci]  Auto-commit.  Scraped events."
-git push $REPO_URL master
+status=$(git status --porcelain events/)
+if [[ -z $status ]]
+then
+  echo "No new events"
+else
+  git commit -m "[skip ci]  Auto-commit.  Scraped events."
+  git push $REPO_URL master
+fi
 
 echo "Deploying!"
 
