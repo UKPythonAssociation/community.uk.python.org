@@ -22,6 +22,13 @@ else
 	REPO_URL="git@github.com:inglesp/ukpython.git"
 fi
 
+echo "Scraping!"
+
+make scrape
+git add events
+git commit -m "[skip ci]  Auto-commit.  Scraped events."
+git push $REPO_URL master
+
 echo "Deploying!"
 
 # Build the site into the output directory
