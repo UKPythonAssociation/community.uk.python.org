@@ -34,12 +34,16 @@ echo "Deploying!"
 
 # Build the site into the output directory
 make build
+echo "tree of everything in output"
+tree output
 
 # Remove gh-pages directory and replace it with the current tip of the gh-pages branch.
 echo "removing gh-pages directory"
 rm -rf gh-pages
 echo "cloning gh-pages branch into gh-pages directory"
 git clone $REPO_URL --branch gh-pages --single-branch gh-pages
+echo "tree of everything in gh-pages"
+tree gh-pages
 
 # Replace the contents of the gh-pages directory with the newly-built site
 echo "removing gh-pages directory again"
