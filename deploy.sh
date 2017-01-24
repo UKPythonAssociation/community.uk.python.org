@@ -49,7 +49,7 @@ rm -rf gh-pages
 echo "cloning gh-pages branch into gh-pages directory"
 git clone $REPO_URL --branch gh-pages --single-branch gh-pages
 echo "tree of everything in gh-pages"
-find gh-pages
+find gh-pages | grep -v .git
 
 # Replace the contents of the gh-pages directory with the newly-built site
 echo "removing gh-pages directory again"
