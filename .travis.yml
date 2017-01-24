@@ -9,4 +9,4 @@ install:
   - pip install -r requirements.txt
   - npm install -g less
 
-after_success: make deploy
+script: make deploy
