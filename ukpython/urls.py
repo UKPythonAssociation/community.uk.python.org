@@ -3,7 +3,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^groups/$', views.UserGroupListView.as_view(), name='user-groups'),
-    url(r'^groups/(?P<slug>[\w-]+)/$', views.UserGroupDetailView.as_view(), name='user-group'),
-    url(r'events/$', views.EventListView.as_view(), name='events'),
+    url(r'^groups/$', views.user_groups, name='user-groups'),
+    url(r'^groups/(?P<key>[\w-]+)/$', views.user_group, name='user-group'),
+    url(r'events/$', views.future_events, name='future-events'),
 ]
