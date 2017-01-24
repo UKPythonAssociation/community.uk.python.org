@@ -3,6 +3,14 @@ from django.shortcuts import render
 from .models import Event, UserGroup
 
 
+def index(request):
+    context = {
+        'groups': UserGroup.objects.order_by('name'),
+        'events_in_next_month': Event.objects.future_events_in_next_month(),
+    }
+    return render(request, 'ukpython/index.html', context)
+
+
 def user_groups(request):
     context = {'groups': UserGroup.objects.order_by('name')}
     return render(request, 'ukpython/user_groups.html', context)
