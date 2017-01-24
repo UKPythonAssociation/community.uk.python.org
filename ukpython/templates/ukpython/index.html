@@ -1,18 +1,13 @@
 <h1>UK Python News</h1>
 
+<ul>
+  <li><a href="/groups/">User Groups</a></li>
+  <li><a href="/events/">Events</a></li>
+</ul>
+
 <h2>Events in the next month</h2>
 
-{% for event in events_in_next_month %}
+{% for event in events %}
 <hr />
 {% include './_event.html' with event=event include_group=True %}
 {% endfor %}
-
-<hr />
-
-<h2>User Groups</h2>
-
-<ul>
-  {% for group in groups %}
-  <li><a href="{% url 'user-group' group.key %}">{{ group.name }}</a></li>
-  {% endfor %}
-</ul>

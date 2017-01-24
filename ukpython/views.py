@@ -4,10 +4,7 @@ from .models import Event, UserGroup
 
 
 def index(request):
-    context = {
-        'groups': UserGroup.objects.order_by('name'),
-        'events_in_next_month': Event.objects.future_events_in_next_month(),
-    }
+    context = {'events': Event.objects.future_events_in_next_month()}
     return render(request, 'ukpython/index.html', context)
 
 
