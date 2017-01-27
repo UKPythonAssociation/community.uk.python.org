@@ -1,9 +1,26 @@
+{% load markdown_deux_tags %}
+
 <h1>UK Python News</h1>
 
 <ul>
   <li><a href="/groups/">User Groups</a></li>
   <li><a href="/events/">Events</a></li>
 </ul>
+
+<h2>Recent news</h2>
+
+{% for item in news_items %}
+<h3>{{ item.title }}</h3>
+<p>{{ item.date }}</p>
+<div class="textblock">
+  {% if item.content_format == 'md' %}
+  {{ item.content|markdown }}
+  {% else %}
+  {{ item.content|safe }}
+  asdf
+  {% endif %}
+</div>
+{% endfor %}
 
 <h2>Events in the next month</h2>
 

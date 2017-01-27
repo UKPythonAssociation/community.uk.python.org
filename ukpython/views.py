@@ -2,11 +2,14 @@ import calendar
 
 from django.shortcuts import render
 
-from .models import Event, UserGroup
+from .models import Event, NewsItem, UserGroup
 
 
 def index(request):
-    context = {'events': Event.objects.future_events_in_next_month()}
+    context = {
+        'events': Event.objects.future_events_in_next_month(),
+        'news_items': NewsItem.objects.recent_news()
+    }
     return render(request, 'ukpython/index.html', context)
 
 

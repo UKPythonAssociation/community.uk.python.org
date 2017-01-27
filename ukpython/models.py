@@ -1,7 +1,8 @@
 import datetime
+import re
 
 from django.db import models
-from django_amber.models import ModelWithoutContent, PagesManager
+from django_amber.models import ModelWithContent, ModelWithoutContent, PagesManager
 
 
 class UserGroup(ModelWithoutContent):
@@ -65,5 +66,30 @@ class Event(ModelWithoutContent):
             today = datetime.date.today()
             thiry_days_time = today + datetime.timedelta(days=30)
             return self.filter(date__gte=today, date__lt=thiry_days_time).order_by('date', 'time')
+
+    objects = Manager()
+
+
+class NewsItem(ModelWithContent):
+    title = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255)
+    date = models.DateField()
+
+    dump_dir_path = 'news'
+
+    @classmethod
+    def fields_from_key(cls, key):
+        pattern = '(?P<year>\d\d\d\d)-(?P<month>\d\d)-(?P<day>\d\d)-(?P<slug>.+)'
+        match = re.match(pattern, key)
+        groups = match.groupdict()
+        date = datetime.datetime(int(groups['year']), int(groups['month']), int(groups['day']))
+        return {'date': date, 'slug': groups['slug']}
+
+    def __str__(self):
+        return self.title
+
+    class Manager(PagesManager):
+        def recent_news(self):
+            return self.order_by('-date')[:5]
 
     objects = Manager()
