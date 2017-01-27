@@ -15,7 +15,7 @@ class UserGroup(ModelWithoutContent):
 
     class Manager(PagesManager):
         def no_events_scheduled(self, year, month):
-            subquery = self.filter(event__date__year=year, event__date__month=month)
+            subquery = self.filter(events__date__year=year, events__date__month=month)
             return self.exclude(id__in=subquery)
 
     objects = Manager()
