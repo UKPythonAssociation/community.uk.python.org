@@ -1,3 +1,5 @@
+import calendar
+
 from django.shortcuts import render
 
 from .models import Event, UserGroup
@@ -27,3 +29,12 @@ def user_group(request, key):
 def future_events(request):
     context = {'events': Event.objects.future_events()}
     return render(request, 'ukpython/events.html', context)
+
+
+def user_groups_with_no_events_scheduled(request, year, month):
+    context = {
+        'groups': UserGroup.objects.no_events_scheduled(year, month).order_by('name'),
+        'month_name': calendar.month_name[int(month)],
+        'year': year,
+    }
+    return render(request, 'ukpython/user_groups_with_no_events_scheduled.html', context)

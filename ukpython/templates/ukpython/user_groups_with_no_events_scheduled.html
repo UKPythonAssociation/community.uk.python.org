@@ -1,0 +1,7 @@
+<h1>User Groups with no events scheduled for {{ month_name }} {{ year }}</h1>
+
+<ul>
+  {% for group in groups %}
+  <li><a href="{% url 'user-group' group.key %}">{{ group.name }}</a> (<a href="{{ group.url }}">Website</a>)</li>
+  {% endfor %}
+</ul>
