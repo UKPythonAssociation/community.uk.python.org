@@ -1,4 +1,5 @@
 title: PyData London 2017 Call for Proposals
+newsletter_month: 2017-02
 ---
 
 From the PyData London team:

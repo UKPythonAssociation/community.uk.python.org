@@ -74,6 +74,7 @@ class NewsItem(ModelWithContent):
     title = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)
     date = models.DateField()
+    newsletter_month = models.CharField(max_length=7, null=True)
 
     dump_dir_path = 'news'
 
@@ -91,5 +92,9 @@ class NewsItem(ModelWithContent):
     class Manager(PagesManager):
         def recent_news(self):
             return self.order_by('-date')[:5]
+
+        def for_newsletter(self, year, month):
+            newsletter_month = '{}-{:02d}'.format(year, month)
+            return self.filter(newsletter_month=newsletter_month).order_by('date')
 
     objects = Manager()
