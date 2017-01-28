@@ -13,7 +13,7 @@ DATA_CENTRE = API_KEY.split('-')[-1]
 BASE_URL = 'https://{}.api.mailchimp.com/3.0/'.format(DATA_CENTRE)
 AUTH = ('', API_KEY)
 
-LIST_NAME = 'API Test'
+LIST_NAME = 'UK Python News'
 TEMPLATE_NAME = '1 Column'
 
 
