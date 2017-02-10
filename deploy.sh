@@ -39,7 +39,7 @@ if [[ -z $status ]]
 then
   echo "No new events"
 else
-  git commit -m "[skip ci]  Auto-commit.  Scraped events.
+  git commit -m "Auto-commit.  Scraped events.
 
 Deploy timestamp: $timestamp
 Travis build id: $TRAVIS_BUILD_ID
