@@ -1,7 +1,15 @@
-<h1>User Groups with no events scheduled for {{ month_name }} {{ year }}</h1>
+{% extends 'ukpython/base.html' %}
 
-<ul>
-  {% for group in groups %}
-  <li><a href="{% url 'user-group' group.key %}">{{ group.name }}</a> (<a href="{{ group.url }}">Website</a>)</li>
-  {% endfor %}
-</ul>
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <h1>User Groups with no events scheduled for {{ month_name }} {{ year }}</h1>
+
+    <ul>
+      {% for group in groups %}
+      <li><a href="{% url 'user-group' group.key %}">{{ group.name }}</a> (<a href="{{ group.url }}">Website</a>)</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

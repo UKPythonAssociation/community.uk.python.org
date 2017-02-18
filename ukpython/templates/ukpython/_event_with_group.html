@@ -1,0 +1,6 @@
+<div>
+  <h3><a href="{% url 'user-group' event.user_group.key %}">{{ event.user_group.name }}</a></h3>
+  <p><a href="{{ event.url }}">{{ event.name }}</a></p>
+  <p>{{ event.date }} {{ event.time }}</p>
+  <p>{{ event.venue }}</p>
+</div>

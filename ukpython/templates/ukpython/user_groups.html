@@ -1,7 +1,15 @@
-<h1>User Groups</h1>
+{% extends 'ukpython/base.html' %}
 
-<ul>
-  {% for group in groups %}
-  <li><a href="{% url 'user-group' group.key %}">{{ group.name }}</a></li>
-  {% endfor %}
-</ul>
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <h2>User Groups</h2>
+
+    <ul>
+      {% for group in groups %}
+      <li><a href="{% url 'user-group' group.key %}">{{ group.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

@@ -1,8 +1,0 @@
-<div>
-  {% if include_group %}
-  <p><a href="{% url 'user-group' event.user_group.key %}">{{ event.user_group.name }}</a></p>
-  {% endif %}
-  <p><a href="{{ event.url }}">{{ event.name }}</a></p>
-  <p>{{ event.time }} {{ event.date }}</p>
-  <p>{{ event.venue }}</p>
-</div>

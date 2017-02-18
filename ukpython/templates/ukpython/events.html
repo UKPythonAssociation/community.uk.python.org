@@ -1,7 +1,13 @@
-<h1>Events</h1>
+{% extends 'ukpython/base.html' %}
 
-{% for event in events %}
-<hr />
-{% include './_event.html' with event=event include_group=True %}
-{% endfor %}
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <h2>Upcoming events</h2>
 
+    {% for event in events %}
+    {% include './_event_with_group.html' with event=event %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
