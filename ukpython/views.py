@@ -14,7 +14,7 @@ def index(request):
 
 
 def user_groups(request):
-    context = {'groups': UserGroup.objects.order_by('name')}
+    context = {'groups': UserGroup.objects.all()}
     return render(request, 'ukpython/user_groups.html', context)
 
 
@@ -36,7 +36,7 @@ def future_events(request):
 
 def user_groups_with_no_events_scheduled(request, year, month):
     context = {
-        'groups': UserGroup.objects.no_events_scheduled(year, month).order_by('name'),
+        'groups': UserGroup.objects.no_events_scheduled(year, month),
         'month_name': calendar.month_name[int(month)],
         'year': year,
     }

@@ -14,6 +14,9 @@ class UserGroup(ModelWithoutContent):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['name']
+
     class Manager(PagesManager):
         def no_events_scheduled(self, year, month):
             subquery = self.filter(events__date__year=year, events__date__month=month)
@@ -23,11 +26,11 @@ class UserGroup(ModelWithoutContent):
 
     def future_events(self):
         today = datetime.date.today()
-        return self.events.filter(date__gte=today).order_by('date', 'time')
+        return self.events.filter(date__gte=today)
 
     def past_events(self):
         today = datetime.date.today()
-        return self.events.filter(date__lt=today).order_by('date', 'time')
+        return self.events.filter(date__lt=today)
 
     def next_event(self):
         upcoming_events = self.future_events()
@@ -54,18 +57,21 @@ class Event(ModelWithoutContent):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['date', 'time']
+
     class Manager(PagesManager):
         def scheduled_in_month(self, year, month):
             return self.filter(date__year=year, date__month=month)
 
         def future_events(self):
             today = datetime.date.today()
-            return self.filter(date__gte=today).order_by('date', 'time')
+            return self.filter(date__gte=today)
 
         def future_events_in_next_month(self):
             today = datetime.date.today()
             thiry_days_time = today + datetime.timedelta(days=30)
-            return self.filter(date__gte=today, date__lt=thiry_days_time).order_by('date', 'time')
+            return self.filter(date__gte=today, date__lt=thiry_days_time)
 
     objects = Manager()
 
@@ -89,12 +95,15 @@ class NewsItem(ModelWithContent):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-date']
+
     class Manager(PagesManager):
         def recent_news(self):
-            return self.order_by('-date')[:5]
+            return self.all()[:5]
 
         def for_newsletter(self, year, month):
             newsletter_month = '{}-{:02d}'.format(year, month)
-            return self.filter(newsletter_month=newsletter_month).order_by('date')
+            return self.filter(newsletter_month=newsletter_month)
 
     objects = Manager()
