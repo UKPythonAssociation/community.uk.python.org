@@ -1,0 +1,9 @@
+{% extends 'ukpython/base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    {% include './_news_item.html' with item=news_item %}
+  </div>
+</div>
+{% endblock %}

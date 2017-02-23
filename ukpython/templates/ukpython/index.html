@@ -1,23 +1,12 @@
 {% extends 'ukpython/base.html' %}
 
-{% load markdown_deux_tags %}
-
 {% block content %}
 <div class="row">
   <div class="col-md-8">
     <h2>Recent news</h2>
 
     {% for item in news_items %}
-    <h3>{{ item.title }}</h3>
-    <p>{{ item.date }}</p>
-    <div class="textblock">
-      {% if item.content_format == 'md' %}
-      {{ item.content|markdown }}
-      {% else %}
-      {{ item.content|safe }}
-      asdf
-      {% endif %}
-    </div>
+    {% include './_news_item.html' with item=item %}
     {% endfor %}
   </div>
 

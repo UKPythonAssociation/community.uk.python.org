@@ -1,0 +1,11 @@
+{% load markdown_deux_tags %}
+
+<h3>{{ item.title }}</h3>
+<p><a href="/news/{{ item.date.year }}/{{ item.date.month|stringformat:"02d" }}/{{ item.date.day|stringformat:"02d" }}/{{ item.slug }}/">{{ item.date }}</a></p>
+<div class="textblock">
+  {% if item.content_format == 'md' %}
+  {{ item.content|markdown }}
+  {% else %}
+  {{ item.content|safe }}
+  {% endif %}
+</div>
