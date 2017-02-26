@@ -3,7 +3,7 @@ import datetime
 
 from django.shortcuts import render
 
-from .models import Event, NewsItem, UserGroup
+from .models import Event, NewsItem, Page, UserGroup
 
 
 def index(request):
@@ -12,6 +12,20 @@ def index(request):
         'news_items': NewsItem.objects.recent_news()
     }
     return render(request, 'ukpython/index.html', context)
+
+
+def page_view(request, key):
+    page = Page.objects.get(key=key)
+
+    assert page.content_format in ['html', 'md'], 'Page content must use HTML or Markdown'
+
+    context = {
+        'content': page.content,
+        'content_format': page.content_format,
+        'title': page.title,
+    }
+
+    return render(request, 'ukpython/page.html', context)
 
 
 def user_groups(request):

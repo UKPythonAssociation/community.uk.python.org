@@ -107,3 +107,12 @@ class NewsItem(ModelWithContent):
             return self.filter(newsletter_month=newsletter_month)
 
     objects = Manager()
+
+
+class Page(ModelWithContent):
+    title = models.CharField(max_length=255)
+
+    dump_dir_path = 'pages'
+
+    def __str__(self):
+        return self.title
