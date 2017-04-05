@@ -56,11 +56,14 @@ class Command(BaseCommand):
             for record in event_records:
                 dt = datetime.fromtimestamp((record['time'] + record['utc_offset']) / 1000)
 
-                venue_fields = []
-                for fieldname in ['name', 'address_1', 'address_2', 'city']:
-                    if fieldname in record['venue']:
-                        venue_fields.append(record['venue'][fieldname].strip())
-                venue = ', '.join(venue_fields)
+                if 'venue' in record:
+                    venue_fields = []
+                    for fieldname in ['name', 'address_1', 'address_2', 'city']:
+                        if fieldname in record['venue']:
+                            venue_fields.append(record['venue'][fieldname].strip())
+                    venue = ', '.join(venue_fields)
+                else:
+                    venue = None
 
                 event, created = Event.objects.update_or_create(
                     url=record['link'],
