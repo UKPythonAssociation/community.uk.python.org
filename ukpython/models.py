@@ -40,7 +40,9 @@ class UserGroup(ModelWithoutContent):
             return None
 
     def other_future_events(self):
-        return self.future_events()[1:]
+        today = datetime.date.today()
+        sixty_days_time = today + datetime.timedelta(days=60)
+        return self.future_events().filter(date__lte=sixty_days_time)[1:]
 
 
 class Event(ModelWithoutContent):
