@@ -125,8 +125,7 @@ MARKDOWN_DEUX_STYLES = {
 
 # Django Amber
 
-# TODO
-# DJANGO_AMBER_CNAME = ''
+DJANGO_AMBER_CNAME = 'uk.python.org'
 
 
 # Django Compressor
