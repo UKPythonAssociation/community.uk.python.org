@@ -1,3 +1,0 @@
-title: Newsletter
----
-Newsletter
