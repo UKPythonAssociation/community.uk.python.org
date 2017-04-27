@@ -3,8 +3,6 @@
 {% block content %}
 <div class="row">
   <div class="col-md-12">
-    <h2>News</h2>
-
     {% for item in news_items %}
     {% include './_news_item.html' with item=item %}
     {% endfor %}

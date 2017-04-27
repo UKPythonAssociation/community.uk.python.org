@@ -3,16 +3,12 @@
 {% block content %}
 <div class="row">
   <div class="col-md-8">
-    <h2>Recent news</h2>
-
     {% for item in news_items %}
     {% include './_news_item.html' with item=item %}
     {% endfor %}
   </div>
 
   <div class="col-md-4">
-    <h2>Upcoming events</h2>
-
     {% for event in events %}
     {% include './_event_with_group.html' with event=event %}
     {% endfor %}
