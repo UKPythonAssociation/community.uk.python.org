@@ -3,13 +3,7 @@
 {% block content %}
 <div class="row">
   <div class="col-md-12">
-    <h2>{{ group.name }}</h2>
-
-    <ul>
-      <li><a href="{{ group.url }}">Website</a></li>
-    </ul>
-
-    <hr />
+    <h2><a href="{{ group.url }}">{{ group.name }}</a></h2>
 
     {% if next_event %}
     <h3>Next event</h3>
