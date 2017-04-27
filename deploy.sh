@@ -9,7 +9,7 @@ if [[ $TRAVIS = "true" ]]; then
 		exit 0
 	fi
 
-	REPO_URL="https://PyConUK-user@github.com/inglesp/ukpython"
+	REPO_URL="https://PyConUK-user@github.com/PyConUK/uk.python.org"
 
 	# Set up credentials for pushing to GitHub.  $GH_TOKEN is configured via Travis web UI.
 	git config --global credential.helper "store --file=$TRAVIS_BUILD_DIR/git-credentials"
@@ -19,7 +19,7 @@ if [[ $TRAVIS = "true" ]]; then
 	git config --global user.name "Travis"
 	git config --global user.email "no-reply@pyconuk.org"
 else
-	REPO_URL="git@github.com:inglesp/ukpython.git"
+	REPO_URL="git@github.com:PyConUK/uk.python.org.git"
 fi
 
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
