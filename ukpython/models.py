@@ -70,8 +70,8 @@ class Event(ModelWithoutContent):
 
         def future_events_in_next_month(self):
             today = datetime.date.today()
-            thiry_days_time = today + datetime.timedelta(days=30)
-            return self.filter(date__gte=today, date__lt=thiry_days_time)
+            thirty_days_time = today + datetime.timedelta(days=30)
+            return self.filter(date__gte=today, date__lt=thirty_days_time)
 
     objects = Manager()
 
