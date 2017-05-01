@@ -9,7 +9,7 @@ from .models import Event, NewsItem, Page, UserGroup
 def index(request):
     context = {
         'events': Event.objects.future_events_in_next_month(),
-        'news_items': NewsItem.objects.recent_news()
+        'news_items': NewsItem.objects.for_website(num_items=5),
     }
     return render(request, 'ukpython/index.html', context)
 
@@ -60,7 +60,7 @@ def user_groups_with_no_events_scheduled(request, year, month):
 
 def news(request):
     context = {
-        'news_items': NewsItem.objects.all()
+        'news_items': NewsItem.objects.for_website()
     }
     return render(request, 'ukpython/news.html', context)
 

@@ -83,6 +83,7 @@ class NewsItem(ModelWithContent):
     slug = models.CharField(max_length=255)
     date = models.DateField()
     newsletter_month = models.CharField(max_length=7, null=True)
+    newsletter_only = models.BooleanField(default=False)
 
     dump_dir_path = 'news'
 
@@ -101,12 +102,15 @@ class NewsItem(ModelWithContent):
         ordering = ['-date']
 
     class Manager(PagesManager):
-        def recent_news(self):
-            return self.all()[:5]
-
         def for_newsletter(self, year, month):
             newsletter_month = '{}-{:02d}'.format(year, month)
             return self.filter(newsletter_month=newsletter_month)
+
+        def for_website(self, num_items=None):
+            qs = self.filter(newsletter_only=False)
+            if num_items is not None:
+                qs = qs[:num_items]
+            return qs
 
     objects = Manager()
 
