@@ -1,6 +1,6 @@
 # UK Python News
 
-[![Build Status](https://travis-ci.org/inglesp/ukpython.svg?branch=master)](https://travis-ci.org/inglesp/ukpython)
+[![Build Status](https://travis-ci.org/PyconUK/uk.python.org.svg?branch=master)](https://travis-ci.org/PyconUK/uk.python.org)
 
 This is the code for uk.python.org.
 
