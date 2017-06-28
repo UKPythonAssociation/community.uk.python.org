@@ -2,7 +2,7 @@ title: PyCon UK 2017 tickets latest
 newsletter_month: 2017-06
 ---
 Tickets for PyCon UK 2017 will go on sale on June 25th,
-and the call for participation will be launched on the same day.
+and the Call for Participation will be launched on the same day.
 
 The conference will take place at Cardiff City Hall from Thursday 26th to Monday 30th October.
 If you've never been to a PyCon before,
