@@ -1,5 +1,5 @@
 title: PyCon UK tickets, talks, and sponsorship
-newsletter_month: 2016-07
+newsletter_month: 2017-07
 ---
 Following a slight holiday-related hitch,
 tickets for PyCon UK 2017 will now go on sale slightly later than planned

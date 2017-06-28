@@ -1,5 +1,5 @@
 title: Could you edit UK Python News?
-newsletter_month: 2016-07
+newsletter_month: 2017-07
 ---
 From Peter Inglesby, PyCon UK chair:
 
