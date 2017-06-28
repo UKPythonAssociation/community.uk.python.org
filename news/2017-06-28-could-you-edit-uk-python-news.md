@@ -14,4 +14,4 @@ There are number of different aspects to the work:
  * enhancing the design of the website
 
 If you'd like to chat more about what taking on any of this would involve,
-please [drop me a line](mailto:peter.inglesby@gmail.com)."
+please drop me a line at peter.inglesby@gmail.com."
