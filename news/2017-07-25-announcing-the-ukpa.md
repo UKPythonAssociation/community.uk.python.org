@@ -16,7 +16,7 @@ The trustees will be responsible for the charity's management and administration
 and will be responsible for appointing a chair for PyCon UK 2018.
 
 If you would like to put yourself forward for election as trustee,
-please complete the [nomination form](https://hq.pyconuk.org/profile/ukpa/nominations/new/)
+please complete the [nomination form](https://hq.pyconuk.org/ukpa/nominations/new/)
 by Thursday 12th October.
 
 You can read more about the decision-making behind the formation of the UKPA
