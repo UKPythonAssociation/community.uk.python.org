@@ -6,7 +6,7 @@ import requests
 
 from django.template.loader import get_template
 
-from ukpython.models import Event, NewsItem, UserGroup
+from ukpython.models import Event, NewsItem, SponsoredNewsItem, UserGroup
 
 API_KEY = os.getenv('MAILCHIMP_API_KEY')
 DATA_CENTRE = API_KEY.split('-')[-1]
@@ -87,7 +87,7 @@ def get_or_create_campaign(year, month):
 
 def generate_html(year, month):
     news_items = NewsItem.objects.for_newsletter(year, month)
-
+    sponsored_news_items = SponsoredNewsItem.objects.for_newsletter(year, month)
     upcoming_events = Event.objects.scheduled_in_month(year, month).order_by('date')
     groups_with_no_events_scheduled = UserGroup.objects.no_events_scheduled(year, month).order_by('name')
 
@@ -99,6 +99,7 @@ def generate_html(year, month):
 
     context = {
         'news_items': news_items,
+        'sponsored_news_items': sponsored_news_items,
         'upcoming_events': upcoming_events,
         'groups_with_no_events_scheduled': groups_with_no_events_scheduled,
         'month_name': month_name,

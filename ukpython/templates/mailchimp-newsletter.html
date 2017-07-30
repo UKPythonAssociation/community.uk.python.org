@@ -21,7 +21,23 @@ All the best,<br />
 {{ item.content|markdown }}
 {% else %}
 {{ item.content|safe }}
-asdf
+{% endif %}
+<br />
+{% endfor %}
+{% endif %}
+
+{% if sponsored_news_items %}
+<h3 class="null">From our sponsors</h3>
+
+<p>Each month, we feature one or two short sponsored announcements from our conference sponsors.  <a href="http://pyconuk.org/sponsorship/">Could your company sponsor PyCon UK?</a></p>
+
+{% for item in sponsored_news_items %}
+<h4 class="null"><a href="{{ item.sponsor.url }}">{{ item.sponsor.name }}</a></h4>
+
+{% if item.content_format == 'md' %}
+{{ item.content|markdown }}
+{% else %}
+{{ item.content|safe }}
 {% endif %}
 <br />
 {% endfor %}
@@ -40,7 +56,7 @@ asdf
 
 <h3 class="null">Other groups</h3>
 
-There are a number of other Python groups who have not yet published details of any {{ month_name }} meetings.<br /><br />
+There are a number of other Python groups who have not yet published details of any {{ month_name }} meetings.  {% if month_name == 'August' %}(Things are always a bit quieter in August!){% endif %}<br /><br />
 
 {% for group in groups_with_no_events_scheduled %}
 <a href="{{ group.url }}" target="_blank">{{ group.name }}</a><br />

@@ -115,6 +115,36 @@ class NewsItem(ModelWithContent):
     objects = Manager()
 
 
+class Sponsor(ModelWithoutContent):
+    name = models.CharField(max_length=255)
+    url = models.URLField(null=True)
+
+    dump_dir_path = 'sponsors'
+
+
+class SponsoredNewsItem(ModelWithContent):
+    sponsor = models.ForeignKey(Sponsor)
+    date = models.DateField()
+    newsletter_month = models.CharField(max_length=7, null=True)
+
+    dump_dir_path = 'sponsored-news'
+
+    @classmethod
+    def fields_from_key(cls, key):
+        pattern = '(?P<year>\d\d\d\d)-(?P<month>\d\d)-(?P<day>\d\d)-(?P<sponsor>.+)'
+        match = re.match(pattern, key)
+        groups = match.groupdict()
+        date = datetime.datetime(int(groups['year']), int(groups['month']), int(groups['day']))
+        return {'date': date, 'sponsor': groups['sponsor']}
+
+    class Manager(PagesManager):
+        def for_newsletter(self, year, month):
+            newsletter_month = '{}-{:02d}'.format(year, month)
+            return self.filter(newsletter_month=newsletter_month)
+
+    objects = Manager()
+
+
 class Page(ModelWithContent):
     title = models.CharField(max_length=255)
 
