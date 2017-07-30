@@ -85,7 +85,7 @@ def get_or_create_campaign(year, month):
     return post('campaigns', data)['id']
 
 
-def update_campaign_content(campaign_id, year, month):
+def generate_html(year, month):
     news_items = NewsItem.objects.for_newsletter(year, month)
 
     upcoming_events = Event.objects.scheduled_in_month(year, month).order_by('date')
@@ -106,7 +106,11 @@ def update_campaign_content(campaign_id, year, month):
         'next_month_deadline': next_month_deadline,
     }
 
-    html = template.render(context)
+    return template.render(context)
+
+
+def update_campaign_content(campaign_id, year, month):
+    html = generate_html(year, month)
     template_id = get_template_id()
 
     data = {
