@@ -1,4 +1,5 @@
 title: The John Pinner Award
+newsletter_month: 2017-10
 ---
 We are pleased to announce that nominations for the first ever
 [John Pinner Award](http://2017.pyconuk.org/pinner-award/) are open.
