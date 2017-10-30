@@ -127,6 +127,10 @@ MARKDOWN_DEUX_STYLES = {
 
 DJANGO_AMBER_CNAME = 'uk.python.org'
 
+DJANGO_AMBER_CRAWL_OPTIONS = {
+    'follow_external_links': False,
+}
+
 
 # Django Compressor
 

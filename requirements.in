@@ -1,5 +1,5 @@
 django
-django-amber>=0.7.0
+django-amber>=0.8.0
 django-dotenv
 django-markdown-deux
 django_compressor
