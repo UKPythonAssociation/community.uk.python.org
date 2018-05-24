@@ -78,7 +78,7 @@ def get_or_create_campaign(year, month):
             'subject_line': subject_line,
             'title': title,
             'from_name': 'PyCon UK',
-            'reply_to': 'peter.inglesby@gmail.com',
+            'reply_to': 'news@uk.python.org',
         },
     }
 
