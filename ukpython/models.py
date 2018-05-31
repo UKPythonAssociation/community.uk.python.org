@@ -78,6 +78,20 @@ class Event(ModelWithoutContent):
     objects = Manager()
 
 
+class MonthlyMessage(ModelWithContent):
+    newsletter_month = models.CharField(max_length=7, unique=True)
+
+    dump_dir_path = 'monthly-messages'
+    key_structure = '[newsletter_month]'
+
+    class Manager(PagesManager):
+        def for_month(self, year, month):
+            newsletter_month = '{}-{:02d}'.format(year, month)
+            return self.filter(newsletter_month=newsletter_month).first()
+
+    objects = Manager()
+
+
 class NewsItem(ModelWithContent):
     title = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)

@@ -1,15 +1,20 @@
 {% load markdown_deux_tags %}
 
-Welcome to the {{ month_name }} edition of UK Python News!<br />
-<br />
-If you run a regular meetup, are putting on an event that you&#39;d like us to publicise, or have other news you&#39;d like to share, please <a href="http://2016.pyconuk.org/contact/" target="_blank">let us know</a>. The deadline for the {{ next_month_name }} edition is {{ next_month_deadline|date:"jS F" }}.<br />
-<br />
-You can catch up with latest news and events <a href="http://uk.python.org/">on our website</a>, or follow us <a href="https://twitter.com/pyconuk">on Twitter</a>.<br />
-<br />
-All the best,<br />
-<br />
-~ The UK Python News team<br />
-<br />
+<p>Welcome to the {{ month_name }} edition of UK Python News!</p>
+
+{% if monthly_message %}
+<p>~~~</p>
+{{ monthly_message.content|markdown }}
+<p>~~~</p>
+{% endif %}
+
+<p>If you run a regular meetup, are putting on an event that you&#39;d like us to publicise, or have other news you&#39;d like to share, please <a href="http://2016.pyconuk.org/contact/" target="_blank">let us know</a>. The deadline for the {{ next_month_name }} edition is {{ next_month_deadline|date:"jS F" }}.</p>
+
+<p>You can catch up with latest news and events <a href="http://uk.python.org/">on our website</a>, or follow us <a href="https://twitter.com/pyconuk">on Twitter</a>.</p>
+
+<p>All the best,</p>
+
+<p>~ The UK Python News team</p>
 
 {% if news_items %}
 <h3 class="null">Announcements</h3>
@@ -22,7 +27,6 @@ All the best,<br />
 {% else %}
 {{ item.content|safe }}
 {% endif %}
-<br />
 {% endfor %}
 {% endif %}
 
@@ -39,7 +43,6 @@ All the best,<br />
 {% else %}
 {{ item.content|safe }}
 {% endif %}
-<br />
 {% endfor %}
 {% endif %}
 
