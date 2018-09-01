@@ -1,7 +1,13 @@
 import calendar
 import datetime
+import os
+import posixpath
 
+from django.contrib.staticfiles import finders
+from django.http import Http404
 from django.shortcuts import render
+from django.utils.six.moves.urllib.parse import unquote
+from django.views import static
 
 from .models import Event, NewsItem, Page, UserGroup
 
@@ -73,3 +79,29 @@ def news_item(request, year, month, day, slug):
         'news_item': news_item,
     }
     return render(request, 'ukpython/news_item.html', context)
+
+
+def serve_static(request, path, insecure=False, **kwargs):
+    """
+    This is copied from Django's contrib.staticfiles.views to remove the DEBUG
+    check.
+
+    We don't need to check DEBUG since we never actually serve the site with
+    Django.
+
+    Serve static files below a given point in the directory structure or
+    from locations inferred from the staticfiles finders.
+    To use, put a URL pattern such as::
+        from django.contrib.staticfiles import views
+        url(r'^(?P<path>.*)$', views.serve)
+    in your URLconf.
+    It uses the django.views.static.serve() view to serve the found files.
+    """
+    normalized_path = posixpath.normpath(unquote(path)).lstrip('/')
+    absolute_path = finders.find(normalized_path)
+    if not absolute_path:
+        if path.endswith('/') or path == '':
+            raise Http404("Directory indexes are not allowed here.")
+        raise Http404("'%s' could not be found" % path)
+    document_root, path = os.path.split(absolute_path)
+    return static.serve(request, path, document_root=document_root, **kwargs)

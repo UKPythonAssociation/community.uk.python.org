@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'news/$', views.news, name='news'),
     url(r'news/(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/(?P<slug>[\w-]+)/$', views.news_item, name='news-item'),
     url(r'^(?P<key>.*?)/$', views.page_view, name='page'),
+    url(r'^static/(?P<path>.*)$', views.serve_static),
 ]
