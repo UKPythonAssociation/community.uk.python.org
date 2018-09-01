@@ -77,7 +77,7 @@ def get_or_create_campaign(year, month):
         'settings': {
             'subject_line': subject_line,
             'title': title,
-            'from_name': 'PyCon UK',
+            'from_name': 'UK Python Association',
             'reply_to': 'news@uk.python.org',
         },
     }
