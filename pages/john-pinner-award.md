@@ -4,7 +4,8 @@ The John Pinner Award celebrates voluntary service to the Python community in
 the UK.
 
 It is awarded annually at PyCon UK to those who freely contribute their time
-and effort for the good of the community.
+and effort for the good of the community.  Recipients are given a Pythonic
+medal and a free ticket to the next year's conference.
 
 Nominations are made by members of the community, and recipients are chosen
 based on these nominations by a small panel of previous recipients, chaired by
