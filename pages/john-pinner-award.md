@@ -14,26 +14,13 @@ a UKPA trustee.
 
 ### 2018 awards
 
-Nominations from members of the UK Python community are now open for the 2018
-awards, via the form below.  You may make as many nominations as you like.
-
-The form will close at 12:00 BST on 1st September, and the recipients of the
-award will be announced during PyCon UK.
+Nominations for the 2018 awards have now closed, and the recipients award will
+be announced on Sunday 16th September at PyCon UK.
 
 The awards will be administered by Peter Inglesby, Cat Lamin, and Tim Golden.
 
 <br />
 <br />
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNCFBJZtciVdoXUohp6VJXNwUH1l0VQjH-nGzNS_f70IhSSg/viewform?embedded=true" width="590" height="1180" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-  </div>
-</div>
-
-<br />
-<br />
-
 
 ### Previous recipients
 
