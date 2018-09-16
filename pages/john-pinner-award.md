@@ -20,7 +20,7 @@ The following were presented with awards at PyCon UK 2018:
 * Ben Nuttall
 * Claire Wicher
 * Dave Jones
-* Kirk Northrup
+* Kirk Northrop
 * Les Pounder
 * Mario Corchero
 * Tania Allard

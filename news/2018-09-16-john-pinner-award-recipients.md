@@ -9,7 +9,7 @@ During PyCon UK, the following members of our community were presented with a me
 * Ben Nuttall
 * Claire Wicher
 * Dave Jones
-* Kirk Northrup
+* Kirk Northrop
 * Les Pounder
 * Mario Corchero
 * Tania Allard
