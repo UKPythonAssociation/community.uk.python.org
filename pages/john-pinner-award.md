@@ -27,9 +27,6 @@ The following were presented with awards at PyCon UK 2018:
 * The London Python Dojo team
 * Tim Williams
 
-<br />
-<br />
-
 ### Previous recipients
 
 #### 2017
