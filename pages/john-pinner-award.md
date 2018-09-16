@@ -14,10 +14,18 @@ a UKPA trustee.
 
 ### 2018 awards
 
-Nominations for the 2018 awards have now closed, and the recipients award will
-be announced on Sunday 16th September at PyCon UK.
+The following were presented with awards at PyCon UK 2018:
 
-The awards will be administered by Peter Inglesby, Cat Lamin, and Tim Golden.
+* Alan O'Donohoe
+* Ben Nuttall
+* Claire Wicher
+* Dave Jones
+* Kirk Northrup
+* Les Pounder
+* Mario Corchero
+* Tania Allard
+* The London Python Dojo team
+* Tim Williams
 
 <br />
 <br />
