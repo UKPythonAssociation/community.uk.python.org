@@ -15,7 +15,7 @@ django==1.10.4
 http-crawler==0.1.2       # via django-amber
 idna==2.8                 # via requests
 lxml==3.7.1               # via http-crawler
-markdown2==2.3.2          # via django-markdown-deux
+markdown2==2.3.7          # via django-markdown-deux
 pyyaml==3.12              # via django-amber
 rcssmin==1.0.6            # via django-compressor
 requests==2.21.0
