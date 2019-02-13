@@ -125,6 +125,8 @@ MARKDOWN_DEUX_STYLES = {
 
 # Django Amber
 
+DJANGO_AMBER_CNAME = "community.uk.python.org"
+
 DJANGO_AMBER_CRAWL_OPTIONS = {
     'follow_external_links': False,
 }
