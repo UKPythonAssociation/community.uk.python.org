@@ -4,7 +4,7 @@
 
 This is the code for uk.python.org.
 
-## Building the site
+## Building the site is very Easy.
 
 This site uses [django-amber](https://github.com/inglesp/django-amber).
 To install django-amber and other dependencies,
