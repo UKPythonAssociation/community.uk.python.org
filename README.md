@@ -1,4 +1,4 @@
-# UK Python News
+# UK Python Community
 
 [![Build Status](https://travis-ci.org/PyconUK/uk.python.org.svg?branch=master)](https://travis-ci.org/PyconUK/uk.python.org)
 
