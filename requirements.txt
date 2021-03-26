@@ -18,7 +18,7 @@ django-dotenv==1.4.2
     # via -r requirements.in
 django-markdown-deux==1.0.5
     # via -r requirements.in
-django==1.10.4
+django==1.11.29
     # via
     #   -r requirements.in
     #   django-amber
@@ -30,6 +30,8 @@ lxml==3.7.1
     # via http-crawler
 markdown2==2.3.7
     # via django-markdown-deux
+pytz==2021.1
+    # via django
 pyyaml==5.4
     # via django-amber
 rcssmin==1.0.6
