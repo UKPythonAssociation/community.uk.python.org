@@ -28,7 +28,7 @@ idna==2.8
     # via requests
 lxml==3.7.1
     # via http-crawler
-markdown2==2.3.7
+markdown2==2.3.9
     # via django-markdown-deux
 pyyaml==5.4
     # via django-amber
