@@ -10,10 +10,8 @@ chardet==3.0.4
     # via requests
 django-amber==0.8.0
     # via -r requirements.in
-django-appconf==1.0.2
+django-appconf==1.0.4
     # via django-compressor
-django-compressor==2.2
-    # via -r requirements.in
 django-dotenv==1.4.2
     # via -r requirements.in
 django-markdown-deux==1.0.5
@@ -22,6 +20,9 @@ django==1.10.4
     # via
     #   -r requirements.in
     #   django-amber
+    #   django-appconf
+django_compressor==2.4.1
+    # via -r requirements.in
 http-crawler==0.1.2
     # via django-amber
 idna==2.8
@@ -39,7 +40,9 @@ requests==2.21.0
     #   -r requirements.in
     #   django-amber
     #   http-crawler
-rjsmin==1.0.12
+rjsmin==1.1.0
+    # via django-compressor
+six==1.15.0
     # via django-compressor
 tinycss2==0.5
     # via http-crawler
