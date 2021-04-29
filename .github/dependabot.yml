@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: django-compressor
+    versions:
+    - "2.4"
+  - dependency-name: lxml
+    versions:
+    - 4.6.2
+  - dependency-name: pyyaml
+    versions:
+    - "5.1"
