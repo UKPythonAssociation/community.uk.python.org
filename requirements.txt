@@ -8,6 +8,10 @@ certifi==2018.11.29
     # via requests
 chardet==3.0.4
     # via requests
+django==1.10.4
+    # via
+    #   -r requirements.in
+    #   django-amber
 django-amber==0.8.0
     # via -r requirements.in
 django-appconf==1.0.2
@@ -18,15 +22,11 @@ django-dotenv==1.4.2
     # via -r requirements.in
 django-markdown-deux==1.0.5
     # via -r requirements.in
-django==1.10.4
-    # via
-    #   -r requirements.in
-    #   django-amber
 http-crawler==0.1.2
     # via django-amber
 idna==2.8
     # via requests
-lxml==3.7.1
+lxml==4.6.5
     # via http-crawler
 markdown2==2.3.7
     # via django-markdown-deux
