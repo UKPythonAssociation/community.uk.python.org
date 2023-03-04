@@ -1,4 +1,4 @@
-# UK Python News
+# UK Python Community
 
 **Deprecated**
 
