@@ -1,8 +1,10 @@
 # UK Python News
 
+**Deprecated**
+
 [![Build Status](https://travis-ci.org/PyconUK/uk.python.org.svg?branch=master)](https://travis-ci.org/PyconUK/uk.python.org)
 
-This is the code for uk.python.org.
+This is the code for community.uk.python.org.
 
 ## Building the site
 
